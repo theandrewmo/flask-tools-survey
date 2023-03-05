@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block question %}
+<form action="http://127.0.0.1:5000/answer/{{qindex}}" method="POST">
+    {{survey.questions[qindex].question}}
+    {% for choice in survey.questions[qindex].choices %}
+    <input type="radio" name="choice" value="{{choice}}">{{choice}}
+    {% endfor %}
+    <input type="submit">
+</form>
+
+{% endblock %}
